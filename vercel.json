@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "myproject/wsgi.py",
@@ -10,15 +11,7 @@
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "myproject/wsgi.py"
-    }
-  ],
-  "version": 2,
-  "routes": [
     { "src": "/api/initialize", "dest": "/api/initialize.js" },
     { "src": "/(.*)", "dest": "/myproject/wsgi.py" }
   ]
-  
 }
