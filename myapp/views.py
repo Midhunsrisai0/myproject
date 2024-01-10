@@ -7,7 +7,7 @@ def home(request):
         # Load the spaCy English model
         nlp = spacy.load("en_core_web_sm")
 
-        # Read the uploaded file
+        # Read the uploaded files
         uploaded_file = request.FILES['file']
         file_contents = uploaded_file.read().decode('utf-8')
 
