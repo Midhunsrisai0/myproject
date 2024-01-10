@@ -14,5 +14,10 @@
       "src": "/(.*)",
       "dest": "myproject/wsgi.py"
     }
-  ]
+  ],
+  "functions": {
+    "initialize": {
+      "handler": "initialize.handler"
+    }
+  }
 }
