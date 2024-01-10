@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Masked Text Generator</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <style>
+            body {
+                background-color: #0f0f0f;
+                color: #00ff00;
+                font-family: 'Courier New', monospace;
+                text-align: center;
+                padding-top: 50px;
+            }
+
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .glitch {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            .upload-button {
+                background-color: #00ff00;
+                border: none;
+                color: #0f0f0f;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .upload-button:hover {
+                background-color: #00dd00;
+            }
+
+            .inputfile {
+                display: none;
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+
+            input[type="file"]+label {
+                cursor: pointer;
+                padding: 10px 20px;
+                background-color: #00ff00;
+                color: #0f0f0f;
+                border-radius: 5px;
+            }
+
+            input[type="file"]+label:hover {
+                background-color: #00dd00;
+            }
+
+            button {
+                background-color: #00ff00;
+                border: none;
+                color: #0f0f0f;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration:
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 class="glitch" data-text="Upload a Text File">Upload a Text File</h1>
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" id="file-upload" name="file" class="inputfile" />
+                <label for="file-upload" class="upload-button glitch" data-text="Choose File">Choose File</label>
+                <button type="submit" class="glitch" data-text="Generate Masked Text">Generate Masked Text</button>
+            </form>
+        </div>
+    </body>
+
+</html>
