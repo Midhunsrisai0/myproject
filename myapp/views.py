@@ -8,11 +8,17 @@ def home(request):
         # Load the spaCy English model
         try:
             nlp = spacy.load("en_core_web_sm")
+            #nlp = spacy.load("es_core_news_sm")
+            #nlp = spacy.load("fr_core_news_sm")
+            #nlp = spacy.load("nl_core_news_sm")
         except OSError:
             # If the model is not found, download it
             import subprocess
             subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
             nlp = spacy.load("en_core_web_sm")
+            #nlp = spacy.load("es_core_news_sm")
+            #nlp = spacy.load("fr_core_news_sm")
+            #nlp = spacy.load("nl_core_news_sm")
         # Read the uploaded files
         uploaded_file = request.FILES['file']
         file_contents = uploaded_file.read().decode('utf-8')
