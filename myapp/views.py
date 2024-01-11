@@ -4,9 +4,15 @@ import spacy
 
 def home(request):
     if request.method == 'POST' and request.FILES['file']:
-        # Load the spaCy English model
-        nlp = spacy.load("en_core_web_sm")
 
+        # Load the spaCy English model
+        try:
+            nlp = spacy.load("en_core_web_sm")
+        except OSError:
+            # If the model is not found, download it
+            import subprocess
+            subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+            nlp = spacy.load("en_core_web_sm")
         # Read the uploaded files
         uploaded_file = request.FILES['file']
         file_contents = uploaded_file.read().decode('utf-8')
